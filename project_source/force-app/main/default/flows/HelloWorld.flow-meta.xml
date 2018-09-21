@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <interviewLabel>HelloWorld {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>HelloWorld</label>
+    <processType>Flow</processType>
+    <recordCreates>
+        <name>AccountCreate</name>
+        <label>AccountCreate</label>
+        <locationX>303</locationX>
+        <locationY>128</locationY>
+        <connector>
+            <targetReference>Start</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>Name</field>
+            <value>
+                <elementReference>$Flow.CurrentDateTime</elementReference>
+            </value>
+        </inputAssignments>
+        <object>Account</object>
+    </recordCreates>
+    <screens>
+        <name>Start</name>
+        <label>Start</label>
+        <locationX>478</locationX>
+        <locationY>134</locationY>
+        <allowBack>true</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>true</allowPause>
+        <fields>
+            <name>HelloWorld</name>
+            <fieldText>Hello World!</fieldText>
+            <fieldType>DisplayText</fieldType>
+        </fields>
+        <fields>
+            <name>BaseComponent</name>
+            <extensionName>flowruntime:slider</extensionName>
+            <fieldType>ComponentInstance</fieldType>
+            <inputParameters>
+                <name>label</name>
+                <value>
+                    <stringValue>How Much Hello?</stringValue>
+                </value>
+            </inputParameters>
+            <isRequired>true</isRequired>
+        </fields>
+        <showFooter>true</showFooter>
+        <showHeader>true</showHeader>
+    </screens>
+    <startElementReference>AccountCreate</startElementReference>
+    <status>Active</status>
+</Flow>
